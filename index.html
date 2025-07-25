@@ -70,7 +70,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const questionsContainer = document.getElementById("questions");
 
-      for (let i = 1; i <= 30; i++) {
+      for (let i = 1; i <= 40; i++) {
         const qDiv = document.createElement("div");
         qDiv.className = "question";
 
@@ -82,7 +82,7 @@
         const optionsDiv = document.createElement("div");
         optionsDiv.className = "options";
 
-        ["A", "B", "C", "D", "E"].forEach(opt => {
+        ["1", "2", "3", "4"].forEach(opt => {
           const label = document.createElement("label");
           label.style.marginRight = "15px";
 
