@@ -70,7 +70,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       const questionsContainer = document.getElementById("questions");
 
-      for (let i = 1; i <= 40; i++) {
+      for (let i = 1; i <= 80; i++) {
         const qDiv = document.createElement("div");
         qDiv.className = "question";
 
@@ -110,7 +110,7 @@
   const formData = new FormData(this);
   let hasil = `Nama: ${nama}\nNo Peserta: ${noPeserta}\n\nJawaban:\n`;
 
-  for (let i = 1; i <= 40; i++) {
+  for (let i = 1; i <= 80; i++) {
     const jawaban = formData.get(`q${i}`) || "-";
     hasil += `Soal ${i}: ${jawaban}\n`;
   }
