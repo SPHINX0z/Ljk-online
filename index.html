@@ -73,14 +73,32 @@
       for (let i = 1; i <= 30; i++) {
         const qDiv = document.createElement("div");
         qDiv.className = "question";
-        qDiv.innerHTML = `
-          <strong>Soal ${i}</strong><br />
-          <div class="options">
-            ${["A", "B", "C", "D", "E"].map(opt =>
-              `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>`
-            ).join(" ")}
-          </div>
-        `;
+
+        // Buat opsi manual agar tidak tergantung template string
+        const labelSoal = document.createElement("strong");
+        labelSoal.innerText = "Soal " + i;
+        qDiv.appendChild(labelSoal);
+
+        const optionsDiv = document.createElement("div");
+        optionsDiv.className = "options";
+
+        ["A", "B", "C", "D", "E"].forEach(opt => {
+          const label = document.createElement("label");
+          label.style.marginRight = "15px";
+
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = "q" + i;
+          input.value = opt;
+
+          label.appendChild(input);
+          label.append(" " + opt);
+
+          optionsDiv.appendChild(label);
+        });
+
+        qDiv.appendChild(document.createElement("br"));
+        qDiv.appendChild(optionsDiv);
         questionsContainer.appendChild(qDiv);
       }
 
